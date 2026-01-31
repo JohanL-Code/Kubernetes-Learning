@@ -1,21 +1,16 @@
 # Arquitectura de Kubernetes – Master
 
-## 🏗️ Componentes del Control Plane
+## Componentes del Master
 
-### 🔹 API Server
-Es la interfaz principal de Kubernetes.  
-Gestiona la comunicación entre el usuario (kubectl, APIs, dashboards) y los componentes internos del clúster.  
-Todas las solicitudes y cambios de estado pasan por el API Server.
+### API Server
+Interfaz para la comunicación entre el usuario y los componentes.
 
-### 🔹 Scheduler
-Componente encargado de asignar los pods a los nodos disponibles.  
-Evalúa políticas, recursos, afinidad, tolerancias y disponibilidad para balancear la carga de trabajo del clúster.
+### Scheduler
+Componente que tiene políticas y especifica la carga de trabajo que afecta la disponibilidad y capacidad de las aplicaciones.
 
-### 🔹 Controller Manager
-Administra los controladores que mantienen el estado deseado del sistema.  
-Supervisa constantemente el estado actual y ejecuta acciones correctivas cuando hay diferencias con el estado esperado.
+### Controller Manager
+Administrador de los estados.
 
-### 🔹 etcd
-Base de datos distribuida tipo key-value.  
-Almacena de forma persistente la información crítica del clúster, como estados, configuraciones, nodos y aplicaciones.  
-Es un componente crítico para el funcionamiento de Kubernetes.
+### etcd
+Base de datos donde se guardan los estados y nodos de las aplicaciones.
+
