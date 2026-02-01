@@ -22,3 +22,6 @@ Service -> Deployment -> Pod
 - volumeMounts
 - livenessProbe
 - readinessProbe
+
+## Deployment
+Son controladres que maneajan pods
