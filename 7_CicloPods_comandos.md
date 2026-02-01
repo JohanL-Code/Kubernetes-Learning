@@ -67,4 +67,44 @@ kubectl get pods --show-labels
 kubectl exec -it <pod> -- curl http://localhost:PUERTO
 ```
 
+### 👉 Pod en CrashLoopBackOff tras escaneo de contenedores
+
+```
+kubectl get pods
+kubectl describe pod <pod-name>
+kubectl logs <pod-name> --previous
+kubectl get pod <pod-name> -o yaml
+```
+
+### 👉 Logs sin errores visibles
+
+```
+kubectl describe pod <pod-name>
+kubectl get pod <pod-name> -o yaml | grep -A5 readiness
+kubectl top pod <pod-name>
+kubectl exec -it <pod> -- sh
+```
+
+### 👉 HPA no escala automáticamente
+
+```
+kubectl get hpa
+kubectl describe hpa <hpa-name>
+kubectl top pods
+kubectl get deployment <app> -o yaml | grep -A5 resources
+```
+**Nota: el HPA requiere requests.cpu.**
+
+### 👉 Gestión de secretos en Kubernetes
+```
+kubectl create secret generic app-secret \
+  --from-literal=DB_USER=user \
+  --from-literal=DB_PASS=pass
+
+kubectl get secrets
+kubectl describe secret app-secret
+```
+
+**Uso: variables de entorno o volúmenes.
+En AKS puede integrarse con Azure Key Vault.**
 
